@@ -1,0 +1,110 @@
+body {
+  background-color: #f1f1f1;
+  font-family: "Courier New", Courier, monospace;
+  color: rgb(85, 129, 187);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  width: 50%;
+  margin: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: auto;
+  padding: 1rem;
+}
+
+.btn-play-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.btn-play {
+  width: 100%;
+  margin: 0.2rem;
+}
+
+.instruction {
+  margin: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.walls {
+  border-top: solid 2px #488aec;
+  border-bottom: solid 2px #488aec;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.btn-walls-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: auto auto;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn-action-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: 1rem 1rem;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  background-color: #ffffff;
+  text-align: left;
+  border-radius: 0.5rem;
+  width: 75vw;
+  margin: auto;
+  margin-top: 20px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.activation {
+  margin: 0;
+}
+
+button {
+  border: none;
+  padding: 0.75rem 1.5rem;
+  background-color: #488aec;
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-radius: 0.5rem;
+  user-select: none;
+  gap: 0.75rem;
+  box-shadow: 0 4px 6px -1px #488aec31, 0 2px 4px -1px #488aec17;
+  transition: all 0.6s ease;
+}
+
+button:hover {
+  background-color: #2f6ac3;
+  box-shadow: 0 10px 15px -3px #488aec4f, 0 4px 6px -2px #488aec17;
+  transform: scale(1.05);
+}

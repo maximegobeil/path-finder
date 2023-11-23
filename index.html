@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Path Finder</title>
+    <link id="theme" rel="stylesheet" href="styles.css" />
+    <script src="finder.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.8.0/lib/p5.js"></script>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="header">
+        <h1>A* Algorithm Path Finder</h1>
+      </div>
+      <div class="grid-container">
+        <div class="grid-item">
+          <div class="btn-play-container">
+            <button class="btn-play" id="start" onclick="startPathDinding()">
+              Start
+            </button>
+            <button class="btn-play" id="reset" onclick="resetBoard()">
+              Reset
+            </button>
+          </div>
+          <div class="walls">
+            <h3 class="instruction">
+              Add wall by clikcing the grid or click a button to add random wall
+            </h3>
+            <div class="btn-walls-container">
+              <button class="btn-walls" onclick="addRandomWalls(0.1)">
+                Add 10%
+              </button>
+              <button class="btn-walls" onclick="addRandomWalls(0.2)">
+                Add 20%
+              </button>
+              <button class="btn-walls" onclick="addRandomWalls(0.3)">
+                Add 30%
+              </button>
+              <button class="btn-walls" onclick="addRandomWalls(0.4)">
+                Add 40%
+              </button>
+            </div>
+          </div>
+          <div class="btn-action-container">
+            <button class="btn-action" onclick="onOffDiagonal()">
+              diagonal
+            </button>
+            <h4 id="diagonalStatus" class="activation"></h4>
+            <button onclick="nextClickStartOrEnd('start')">choose start</button>
+            <h4 id="startPointStatus" class="activation"></h4>
+            <button onclick="nextClickStartOrEnd('end')">choose end</button>
+            <h4 id="endPointStatus" class="activation"></h4>
+            <button onclick="removeWallsOnOff()">remove walls</button>
+            <h4 id="removeWallsStatus" class="activation"></h4>
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="table" id="canvasDiv"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
