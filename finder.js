@@ -32,10 +32,12 @@ class Spot {
       noStroke();
       rect(this.x * w, this.y * h, w - 1, h - 1);
     };
+
     this.addNeighbors = function (grid) {
       this.neighbors = [];
       let i = this.x;
       let j = this.y;
+      // Set the neighbors up, down, left, right
       if (i < cols - 1) {
         this.neighbors.push(grid[i + 1][j]);
       }
@@ -48,6 +50,7 @@ class Spot {
       if (j > 0) {
         this.neighbors.push(grid[i][j - 1]);
       }
+      // Set the neighbors diagonaly if setDiagonal is true
       if (setDiagonal === true) {
         if (i > 0 && j > 0) {
           this.neighbors.push(grid[i - 1][j - 1]);
@@ -74,6 +77,7 @@ function removeFromArray(arr, element) {
   }
 }
 
+// Distance between the current spot and the end spot
 function heuristic(a, b) {
   let d = abs(a.x - b.x) + abs(a.y - b.y);
   return d;
@@ -90,7 +94,7 @@ function addRandomWalls(numberOfWalls) {
   end.wall = false;
 }
 
-// choose a start point by clicking on the grid
+// Choose a start or end point by clicking on the grid
 function nextClickStartOrEnd(choice) {
   if (choice === "start") {
     setStartPoint = true;
@@ -175,6 +179,7 @@ function onOffDiagonal() {
   }
 }
 
+// Start the drawing after the start button is pressed
 function startPathDinding() {
   ready = true;
   openSet.push(start);
@@ -223,14 +228,12 @@ function setup() {
   end = grid[cols - 1][rows - 1];
   start.wall = false;
   end.wall = false;
-
-  console.log(grid);
-  //openSet.push(start);
 }
+
 // p5.js
 function draw() {
-  background(0);
   // Print the board
+  background(0);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       grid[i][j].show(color(225));
@@ -256,9 +259,7 @@ function draw() {
       var current = openSet[lowestF];
 
       if (current === end) {
-        // find the path
-
-        noLoop();
+        noLoop(); // P5js function to stop looping through draw()
         console.log("We found the end!");
       }
 
@@ -288,24 +289,21 @@ function draw() {
           }
         }
       }
-
-      // we can keep going
     } else {
       console.log("No solution");
       noLoop();
       return;
     }
 
-    // Red Spot
+    // Add Red Spot
     for (let i = 0; i < closedSet.length; i++) {
       closedSet[i].show(color(168, 27, 22));
     }
-    // Green Spot
+    // Add Green Spot
     for (let i = 0; i < openSet.length; i++) {
       openSet[i].show(color(35, 130, 26));
     }
-    // Blue path
-
+    // Creating blue path
     path = [];
     let temp = current;
     path.push(temp);
@@ -314,7 +312,7 @@ function draw() {
       temp = temp.previous;
     }
 
-    // Blue Spot
+    // Add Blue Spot
     for (let i = 0; i < path.length; i++) {
       path[i].show(color(26, 35, 156));
     }
